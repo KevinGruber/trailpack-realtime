@@ -3,10 +3,6 @@ const Trailpack = require('trailpack')
 const SocketIO = require('socket.io')
 const _ = require('lodash')
 
-const configDefaults = {
-  path: '/sockets'
-}
-
 module.exports = class Realtime extends Trailpack {
   validate() {
     return Promise.resolve()
@@ -23,7 +19,7 @@ module.exports = class Realtime extends Trailpack {
           httpServer = httpServer[0]
         }
         const config = _.get(this.app.config, 'realtime', { options: {} })
-        this.app.sockets = new SocketIO(httpServer, Object.assign(configDefaults, config.options))
+        this.app.sockets = new SocketIO(httpServer.listen, Object.assign({}, config.options))
         res()
       })
     })
