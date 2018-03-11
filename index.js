@@ -3,6 +3,10 @@ const Trailpack = require('trailpack')
 const SocketIO = require('socket.io')
 const _ = require('lodash')
 
+const configDefaults = {
+  path: '/sockets'
+}
+
 module.exports = class Realtime extends Trailpack {
   validate() {
     return Promise.resolve()
