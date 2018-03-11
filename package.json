@@ -16,6 +16,10 @@
     {
       "name": "Aumard Jimmy",
       "url": "https://github.com/jaumard"
+    },
+    {
+      "name": "Kevin Gruber",
+      "url": "https://github.com/KevinGruber"
     }
   ],
   "main": "index.js",
@@ -24,11 +28,10 @@
     "trails",
     "trailjs",
     "sockets",
-    "primus"
+    "socket.io"
   ],
   "dependencies": {
-    "engine.io": "^3.1.4",
-    "primus": "^7.1.0",
+    "scoket.io": "^2.0.4",
     "trailpack": "^2.1.3"
   },
   "devDependencies": {
@@ -45,6 +48,6 @@
   "eslintConfig": {
     "extends": "trails"
   },
-  "repository": "git@github.com:trailsjs/trailpack-realtime",
+  "repository": "git@github.com:KevinGruber/trailpack-realtime",
   "license": "MIT"
 }

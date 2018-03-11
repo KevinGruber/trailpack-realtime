@@ -1,11 +1,7 @@
 'use strict'
 const Trailpack = require('trailpack')
-const Primus = require('primus')
+const SocketIO = require('socket.io')
 const _ = require('lodash')
-
-const primusDefaults = {
-  transformer: 'engine.io'
-}
 
 module.exports = class Realtime extends Trailpack {
   validate() {
@@ -22,8 +18,8 @@ module.exports = class Realtime extends Trailpack {
         if (Array.isArray(httpServer)) {
           httpServer = httpServer[0]
         }
-        const primusConfig = _.get(this.app.config, 'realtime.primus', { options: {} })
-        this.app.sockets = new Primus(httpServer, Object.assign(primusDefaults, primusConfig.options))
+        const config = _.get(this.app.config, 'realtime', { options: {} })
+        this.app.sockets = new SocketIO(httpServer, Object.assign(configDefaults, config.options))
         res()
       })
     })
